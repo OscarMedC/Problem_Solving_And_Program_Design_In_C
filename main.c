@@ -11,7 +11,12 @@ int main() {
 
 	int n = 15;
 
-	printf("The value of n is %d.", n);
+	printf("The value of n is %d.\n", n);
+
+	double side = 5.0;
+	double area = 25.0;
+
+	printf("The area of a square whose side length is %lfcm is %lf square km.\n", side, area);
 
 	return 0;
 } 
