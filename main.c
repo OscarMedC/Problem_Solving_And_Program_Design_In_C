@@ -6,11 +6,10 @@
 
 int main() {
 
-	int a = 504;
-	double b = 302.558;
-	double c = -12.31;
+	int age = 0;
 
-	printf("%5d%11.2lf%9.1lf", a, b, c);
+	scanf_s("%d", &age);
+	printf("%d", age);
 
 	return 0;
 } 
