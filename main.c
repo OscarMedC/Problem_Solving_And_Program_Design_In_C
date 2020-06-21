@@ -1,16 +1,24 @@
 /*
 *	Programmer: Oscar Olsson	Date completed: 21/06-20
-*
-*	Stores the values 'x' and 76.1 in seperate memory cells, then displays them.
+*	Implements the following equation avg = (1 - a)^2 + (oldavg - min) / (max - min) in C
 */
 #include <stdio.h>
 
-int main() {
-	
-	char c = 'X';
-	double a = 76.1;
+#define ALPHA 0.001
 
-	printf("%c %0.1lf", c, a);
+int main() {
+
+	double avg = 0.0;
+	double min = 0.0;
+	double oldavg = 0.0;
+	double max = 0.0;
+
+	printf("Enter the old average, min and max value> ");
+	scanf_s("%lf%lf%lf", &oldavg, &min, &max);
+
+	avg = ((1 - ALPHA) * 2) + ((oldavg - min) / (max - min));
+
+	printf("The average is %lf \n", avg);
 
 	return 0;
 } 
