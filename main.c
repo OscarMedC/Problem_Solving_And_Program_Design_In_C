@@ -24,6 +24,5 @@ int main() {
 
 	printf("The amount of power produced is %.2lfMW\n", work / 1000000 );
 
-
 	return 0;
 } 
