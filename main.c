@@ -1,25 +1,22 @@
 /*
 *	Programmer: Oscar Olsson	Date completed: 22/06-20
-*	Program that estimates the temperature in a freezer since a power failure
+*	Converts US dollars to pounds sterling
 */
 #include <stdio.h>
 
+#define CONVERSION_RATE 0.636 // 1US$ == 0,636 Sterling
 
 int main() {
 
-	int hours = 0;
-	int minutes = 0;
-	double time = 0.0;
-	double temperature = 0.0;
+	float dollar = 0.0; // Problem input, currency in US dollars
+	float pounds = 0.0; // Problem output, currency in pounds sterling
 
-	printf("\nEnter how long since the start of the power failure in hrs and minutes> ");
-	scanf_s("%d%d", &hours, &minutes);
+	printf("\nEnter the amount of USD($) > ");
+	scanf_s("%f", &dollar);
 
-	time = (double)hours + (double)minutes / 60;
+	pounds = dollar * (float)CONVERSION_RATE;
 
-	temperature = ((4 * time * time) / (time + 2)) - 20;
-
-	printf("The temperature in the fridge after %.2lf hours is %.2lf.\n", time, temperature);
+	printf("\n%.2fUSD($) = %.2f pounds sterling(£)\n", dollar, pounds);
 
 	return 0;
 } 
