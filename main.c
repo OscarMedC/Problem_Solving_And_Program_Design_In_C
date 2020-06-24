@@ -7,10 +7,10 @@
 int main() {
 
 	char desired_grade = ' ';	// Problem input, desired grade
-	double min_avg = 0.0;
-	double curr_avg = 0.0;
-	double final_percent = 0.0;
-	double score_req = 0.0;
+	double min_avg = 0.0;	// Problem input, minimum average required
+	double curr_avg = 0.0;	// Problem input, current average in course
+	double final_percent = 0.0;	// Problem input, how much the finals counts for the grade
+	double score_req = 0.0;		// Problem input, calculated score needed for a specific grade
 
 	printf("\nEnter desired grade> ");
 	scanf_s("%c", &desired_grade, 1);
