@@ -1,32 +1,26 @@
 /*
 *	Programmer: Oscar Olsson	Date completed: 24/06-20
-*	Predicts the score needed on the final exam to achieva a desired grade
+*	Calculates the amount BTU of heat delievered to a house
 */
 #include <stdio.h>
 
+#define ENERGY_PER_GALLON 5800000.0 / 42.0	// Constant, BTU per gallon of oil
+
 int main() {
 
-	char desired_grade = ' ';	// Problem input, desired grade
-	double min_avg = 0.0;	// Problem input, minimum average required
-	double curr_avg = 0.0;	// Problem input, current average in course
-	double final_percent = 0.0;	// Problem input, how much the finals counts for the grade
-	double score_req = 0.0;		// Problem input, calculated score needed for a specific grade
+	int gallons = 0;	// User input, amount of oil to be burned 
+	double energy_efficiency = 0.0;		// User input, efficiency of the oil furnace in percent
+	double energy = 0.0;	// Program output, amount BTUs of heat created
 
-	printf("\nEnter desired grade> ");
-	scanf_s("%c", &desired_grade, 1);
-	
-	printf("Enter the minium average required> ");
-	scanf_s("%lf", &min_avg);
+	printf("\nEnter the amount of oil being burned (Gallons) > ");
+	scanf_s("%d", &gallons);
 
-	printf("Enter the current average in course> ");
-	scanf_s("%lf", &curr_avg);
+	printf("\nEnter the thermal efficiency (in percent) > ");
+	scanf_s("%lf", &energy_efficiency);
 
-	printf("Enter how much the final counts as a percentage of the course grade> ");
-	scanf_s("%lf", &final_percent);
+	energy = (double)gallons * ENERGY_PER_GALLON * energy_efficiency;
 
-	score_req = ((min_avg - curr_avg) * (100 / (double)final_percent)) + curr_avg;
-
-	printf("\nYou need a score of %.2lf on the final to get a %c.\n", score_req, desired_grade);
+	printf("\n%.2lf BTUs of heat are delivered to the house.\n", energy);
 
 	return 0;
 } 
