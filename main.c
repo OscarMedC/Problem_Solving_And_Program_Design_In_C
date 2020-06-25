@@ -1,26 +1,34 @@
 /*
 *	Programmer: Oscar Olsson	Date completed: 24/06-20
-*	Calculates the amount BTU of heat delievered to a house
+*	Calculates the amount of water and money saved on toilts
 */
 #include <stdio.h>
+#include <math.h>
 
-#define ENERGY_PER_GALLON 5800000.0 / 42.0	// Constant, BTU per gallon of oil
+#define OLD_FLUSH 15	// Constant, liter of water per flush with old toilets
+#define NEW_FLUSH  2	// Constant, liter of water per flush with new toilets
+#define FLUSHES_PER_DAY 14		// Constant, flushes per day on each toilet
+#define NEW_TOILETS_COST 150	// Constant, cost of each new toilet
 
 int main() {
 
-	int gallons = 0;	// User input, amount of oil to be burned 
-	double energy_efficiency = 0.0;		// User input, efficiency of the oil furnace in percent
-	double energy = 0.0;	// Program output, amount BTUs of heat created
+	int nr_of_people = 0;	// User input, the amount of persons using the toilets
+	int nr_of_toilets = 0;	// User input, the amount of toilets
+	int liters_per_day = 0;	// Program output, total liters used per day
+	int total_cost = 0;		// Program output, total cost of the new toilets
 
-	printf("\nEnter the amount of oil being burned (Gallons) > ");
-	scanf_s("%d", &gallons);
+	printf("Enter the communitys populace > ");
+	scanf_s("%d", &nr_of_people);
 
-	printf("\nEnter the thermal efficiency (in percent) > ");
-	scanf_s("%lf", &energy_efficiency);
+	nr_of_toilets = round((double)nr_of_people / 3);
 
-	energy = (double)gallons * ENERGY_PER_GALLON * energy_efficiency;
+	liters_per_day = (nr_of_toilets * OLD_FLUSH * FLUSHES_PER_DAY) - (nr_of_toilets * NEW_FLUSH * FLUSHES_PER_DAY);
 
-	printf("\n%.2lf BTUs of heat are delivered to the house.\n", energy);
+	printf("%d Liters of water will be saved each day\n", liters_per_day);
+
+	total_cost = nr_of_toilets * NEW_TOILETS_COST;
+
+	printf("\nThe total cost of the water saved is $%d.\n", total_cost);
 
 	return 0;
 } 
