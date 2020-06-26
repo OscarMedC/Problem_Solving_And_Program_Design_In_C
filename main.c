@@ -1,34 +1,34 @@
 /*
 *	Programmer: Oscar Olsson	Date completed: 24/06-20
-*	Calculates the amount of water and money saved on toilts
+*	Calculates the amount of time it takes to mow the lawn
 */
 #include <stdio.h>
-#include <math.h>
 
-#define OLD_FLUSH 15	// Constant, liter of water per flush with old toilets
-#define NEW_FLUSH  2	// Constant, liter of water per flush with new toilets
-#define FLUSHES_PER_DAY 14		// Constant, flushes per day on each toilet
-#define NEW_TOILETS_COST 150	// Constant, cost of each new toilet
+#define TIME_TO_CUT 2.0		// Cuts 2 square meters per second
 
 int main() {
 
-	int nr_of_people = 0;	// User input, the amount of persons using the toilets
-	int nr_of_toilets = 0;	// User input, the amount of toilets
-	int liters_per_day = 0;	// Program output, total liters used per day
-	int total_cost = 0;		// Program output, total cost of the new toilets
+	double yard_length = 0.0;	// User input, length of the yard
+	double yard_width = 0.0;	// User input, width of the yard
 
-	printf("Enter the communitys populace > ");
-	scanf_s("%d", &nr_of_people);
+	double house_length = 0.0;	// User input, length of the house
+	double house_width = 0.0;	// User input, width of the house
 
-	nr_of_toilets = round((double)nr_of_people / 3);
+	double house_area = 0.0;	// Area of the house
+	double yard_area = 0.0;		// Area of the yard		
 
-	liters_per_day = (nr_of_toilets * OLD_FLUSH * FLUSHES_PER_DAY) - (nr_of_toilets * NEW_FLUSH * FLUSHES_PER_DAY);
+	printf("\nEnter the yards length and width > ");
+	scanf_s("%lf %lf", &yard_length, &yard_width);
 
-	printf("%d Liters of water will be saved each day\n", liters_per_day);
+	printf("\nEnter the house length and width > ");
+	scanf_s("%lf %lf", &house_length, &house_width);
 
-	total_cost = nr_of_toilets * NEW_TOILETS_COST;
+	yard_area = yard_length * yard_width;
+	house_area = house_length * house_width;
 
-	printf("\nThe total cost of the water saved is $%d.\n", total_cost);
+	yard_area = yard_area - house_area;
+
+	printf("\nIt takes %.2lf seconds to cut a %.2lfsqm^2 big yard\n", yard_area / TIME_TO_CUT, yard_area);
 
 	return 0;
 } 
