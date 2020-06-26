@@ -1,34 +1,41 @@
 /*
-*	Programmer: Oscar Olsson	Date completed: 24/06-20
-*	Calculates the amount of time it takes to mow the lawn
+*	Programmer: Oscar Olsson	Date completed: 26/06-20
+*	Perpendicular Bisector Calculator
 */
 #include <stdio.h>
 
-#define TIME_TO_CUT 2.0		// Cuts 2 square meters per second
 
 int main() {
 
-	double yard_length = 0.0;	// User input, length of the yard
-	double yard_width = 0.0;	// User input, width of the yard
+	double x1_cord = 0.0;
+	double y1_cord = 0.0;
+	
+	double x2_cord = 0.0;
+	double y2_cord = 0.0;
 
-	double house_length = 0.0;	// User input, length of the house
-	double house_width = 0.0;	// User input, width of the house
+	double slope = 0.0;
+	double x_mid = 0.0;
+	double y_mid = 0.0;
+	double bisector_slope = 0.0;
+	double b = 0.0;
 
-	double house_area = 0.0;	// Area of the house
-	double yard_area = 0.0;		// Area of the yard		
+	printf("\nEnter x1 cord > ");
+	scanf_s("%lf", &x1_cord);
+	printf("\nEnter y1 cord > ");
+	scanf_s("%lf", &y1_cord);
 
-	printf("\nEnter the yards length and width > ");
-	scanf_s("%lf %lf", &yard_length, &yard_width);
+	printf("\nEnter x2 cord > ");
+	scanf_s("%lf", &x2_cord);
+	printf("\nEnter y2 cord > ");
+	scanf_s("%lf", &y2_cord);
 
-	printf("\nEnter the house length and width > ");
-	scanf_s("%lf %lf", &house_length, &house_width);
+	slope = (y2_cord - y1_cord) / (x2_cord - x1_cord);
+	x_mid = (x1_cord + x2_cord) / 2;
+	y_mid = (y1_cord + y2_cord) / 2;
+	bisector_slope = -1 * slope;
+	b = y_mid - bisector_slope * x_mid;
 
-	yard_area = yard_length * yard_width;
-	house_area = house_length * house_width;
-
-	yard_area = yard_area - house_area;
-
-	printf("\nIt takes %.2lf seconds to cut a %.2lfsqm^2 big yard\n", yard_area / TIME_TO_CUT, yard_area);
+	printf("\n Equation of the perpendicular bisector -\n Y = %.1lfX + %.1lf \n", bisector_slope, b);
 
 	return 0;
 } 
